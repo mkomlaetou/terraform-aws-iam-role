@@ -67,12 +67,11 @@ resource "aws_iam_role" "role" {
   name               = var.role_details.role_name
   assume_role_policy = local.crossing_account_ids != [] ? data.aws_iam_policy_document.cross_account_policy[0].json : local.principals != [] ? data.aws_iam_policy_document.service_account_policy[0].json : file("${path.cwd}${var.role_details.custom_sts_policy_file_path}")
 
-  #managed_policy_arns = var.role_details.managed_policies != [] ? local.policies : null
   dynamic "inline_policy" {
     for_each = var.role_details.permission_policy_file_path
     content {
       name   = inline_policy.key
-      policy = file("${path.cwd}${inline_policy.value}")
+      policy = inline_policy.key == "none" ? file("${path.module}${inline_policy.value}") : file("${path.cwd}${inline_policy.value}")
     }
   }
 
