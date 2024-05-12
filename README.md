@@ -78,7 +78,7 @@ provider "aws" {
 
 
 module "xyz_role" {
-  source = "git::https://github.com/mkomlaetou/terraform-aws-iam-role.git?ref=v1.0.2"
+  source = "mkomlaetou/iam-role/aws"
 
   role_details    = var.xyz_role
   additional_tags = var.additional_tags
