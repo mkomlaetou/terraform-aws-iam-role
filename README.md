@@ -96,7 +96,7 @@ variable "xyz_role" {
   default = {
     role_name = "xyz_ec2-s3_role"
     #crossing_account_ids        = ["000000000000", "1111111111111"]
-    principals = ["ec2"]
+    principals = ["ec2", "s3", "autoscaling"]
     #custom_sts_policy_file_path = "/policies/login_acc_general_sts_trust.json"
     permission_policy_file_path = {
       additional_p1 = "/policies/s3.json"
