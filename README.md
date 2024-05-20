@@ -110,9 +110,9 @@ variable "xyz_role" {
 // TAG VARIABLE
 variable "additional_tags" {
   default = {
-    created_by      = "mkomlaetou"
+    created_by      = "xxxxxxxx"
     created_on      = "2023-04-30"
-    last_maintainer = "mkomlaetou"
+    last_maintainer = "xxxxxxxx"
     environment     = "dev"
   }
 }
